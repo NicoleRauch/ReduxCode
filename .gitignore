@@ -1,0 +1,8 @@
+node_modules
+build
+.DS_Store
+package-lock.json
+build-js
+.idea/workspace.xml
+.idea
+weg

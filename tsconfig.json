@@ -1,0 +1,45 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "outDir": "build-js",
+    "module": "esnext",
+    "target": "es5",
+    "lib": ["es6", "dom", "es2016"],
+    "sourceMap": true,
+    "allowJs": false,
+    "jsx": "react",
+    "moduleResolution": "node",
+    "rootDirs": ["src", "test"],
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "strictNullChecks": true,
+    "noUnusedLocals": false,
+    "allowSyntheticDefaultImports": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "noImplicitThis": true,
+    "noImplicitReturns": true,
+    "noImplicitAny": false,
+    "noUnusedParameters": false,
+    "skipLibCheck": true
+  },
+  "ts-node": {
+    // these options are overrides used only by ts-node
+    // same as the --compilerOptions flag and the TS_NODE_COMPILER_OPTIONS environment variable
+    "compilerOptions": {
+      "module": "commonjs"
+    }
+  },
+  "exclude": [
+    "node_modules",
+    "build",
+    "build-js",
+    "coverage",
+    "buildParameter.js",
+    "webpack.base.config.js",
+    "webpack.beta.config.js",
+    "webpack.config.js",
+    "webpack.prod.config.js",
+    "jest",
+    "tools"
+  ]
+}
