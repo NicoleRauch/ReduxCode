@@ -10,7 +10,7 @@ export const AppComponent = ({users, dispatch}: StoreState & IDispatchProps) =>
     <div>
         <UserList users={users} />
         <UserCreation dispatch={dispatch} />
-      </div>;
+    </div>;
 
 export default connect<StoreState, Record<string, unknown>, Record<string, unknown>, StoreState>
     (R.identity)(AppComponent);

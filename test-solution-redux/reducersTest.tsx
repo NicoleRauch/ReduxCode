@@ -18,7 +18,8 @@ describe('reducers', () => {
 describe('reducer function', () => {
   it('returns the initial state when invoked w/o params', () => {
     const newState = reducer();
-    expect(newState).toEqual(INITIAL_STATE); // from reducers.ts
+    expect(newState).toEqual(INITIAL_STATE);
+    // INITIAL_STATE from reducers.ts
   });
   it('returns the same state when action unknown', () => {
     const startState: StoreState = {users: [stateUserOne]};
