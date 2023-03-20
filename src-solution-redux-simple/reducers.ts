@@ -4,12 +4,8 @@ import {IUser, StoreState, IUsers} from "../src-solution-redux-1/types";
 import {createReducer} from "./createReducer";
 
 
-const INITIAL_STATE: StoreState = {
-  users: [
-    {firstName: "Nicole", lastName: "Rauch"},
-    {firstName: "Peter", lastName: "Müller"},
-    {firstName: "Fritz", lastName: "Walter"}
-  ]
+export const INITIAL_STATE: StoreState = {
+  users: []
 };
 
 export enum UserActions {
@@ -55,6 +51,7 @@ const userReducer3 = createReducer<IUsers>(
         (state: IUsers, action: UserAddedAction) =>
             state.concat(action.user)
   });
+
 const reducer3 = combineReducers({users: userReducer3});
 
 export default reducer3;

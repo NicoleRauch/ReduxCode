@@ -1,0 +1,14 @@
+export const asyncActionInANutshell = () =>
+
+  (dispatch: Dispatch<Action>, getState: () => StoreState)=>{
+
+    const { someStatePart } = getState();
+
+    dispatch(readyToTakeOff());
+
+    performBackendCall(params, response => {
+
+      dispatch(anActionFor(response));
+
+    });
+  };
