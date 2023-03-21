@@ -6,10 +6,10 @@ export type IUser = {
     lastName: string
 }
 
-export type IUsers = IUser[];
+export type UserState = IUser[];
 
 export type StoreState = {
-    users: IUsers
+    users: UserState
 }
 
 export type TAction = ThunkAction<

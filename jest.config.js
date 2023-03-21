@@ -12,6 +12,7 @@ module.exports = {
     roots: [
         "test",
         "test-solution-redux",
+        "test-solution-async-calls"
     ],
     testRegex: "\\.*[tT]est\\.tsx?$",
     testURL: "http://localhost"

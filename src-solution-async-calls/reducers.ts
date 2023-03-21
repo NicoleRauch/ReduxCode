@@ -9,7 +9,7 @@ const INITIAL_STATE: StoreState = {
 };
 
 const usersReducer = createReducer(INITIAL_STATE.users, {
-  [ActionTypes.USER_ADDED]: (state: IUser[], action: UserAddAction) => state.concat(action.user),
+  [ActionTypes.USER_ADDED]: (currentUsers: IUser[], action: UserAddAction) => currentUsers.concat(action.user),
   [ActionTypes.USERS_SET]: (_: IUser[], action: UsersSetAction) => action.users
 });
 

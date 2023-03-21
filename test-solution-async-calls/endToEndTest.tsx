@@ -1,15 +1,19 @@
 /**
  * @jest-environment jsdom
  */
+import "@testing-library/jest-dom";
 
 import React from "react";
+import {render} from "@testing-library/react";
 
 import sinon, {SinonFakeServer} from "sinon";
-import {Provider, ProviderProps} from "react-redux";
+import {Store} from "redux";
+import {Provider} from "react-redux";
 import thunkMiddleware from "redux-thunk";
 
 import reducer from "../src-solution-async-calls/reducers";
-import {AppComponent} from "../src-solution-async-calls/App";
+import App from "../src-solution-async-calls/App";
+import { configureStore } from "@reduxjs/toolkit";
 
 const users = [
   {firstName: "Nicole", lastName: "Rauch"},
@@ -20,14 +24,14 @@ const users = [
 describe("Username end2end test", () => {
   let server : SinonFakeServer;
   let store : Store;
-  let component: ReactWrapper<ProviderProps, Record<string, unknown>, Provider>;
 
   beforeEach(() => {
     server = sinon.fakeServer.create({respondImmediately: true});
 
-    store = createStore(reducer,
-      applyMiddleware(thunkMiddleware)
-    );
+    store = configureStore({
+      reducer,
+      middleware: [thunkMiddleware],
+    });
   });
 
   afterEach(() => {
@@ -42,17 +46,13 @@ describe("Username end2end test", () => {
       [200, {"Content-Type": "application/json"}, "User successfully added."]
     );
 
-
-    component = mount<Provider, ProviderProps, Record<string, unknown>>(<Provider store={store}>
-        <App/>
-      </Provider>
-    );
+    const {container} = render(<Provider store={store}><App/></Provider>);
 
     // you can interact with the UI here
-    //  const button = component.find("button");
-    //  button.simulate("click");
 
-    expect(component.find("span").map(u => u.text())).toEqual(["Nicole","Rauch","Fritz","Müller","Klaus","Walter"]);
+    users.map(u => [u.firstName, u.lastName]).flat().forEach(name =>
+      expect(container).toHaveTextContent(name)
+    )
 
     // In case you need to find out which API is called, you can probe the calls like this:
     expect(server.requests.length).toEqual(1);

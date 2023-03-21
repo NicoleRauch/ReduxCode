@@ -1,7 +1,7 @@
 import { postUser, fetchUsers } from "../src-solution-async-calls/ajaxcalls";
 import sinon, {SinonFakeXMLHttpRequest, SinonFakeXMLHttpRequestStatic} from "sinon";
 
-import {IUser} from "../src-solution-async-calls/types";
+import {IUser} from "../src/types";
 
 declare const global: {XMLHttpRequest ?: SinonFakeXMLHttpRequestStatic};
 
@@ -27,7 +27,7 @@ describe("validateInBackend", () => {
 
   describe("postUser", () => {
     it("submits user data to the backend", () => {
-      postUser(user, jest.fn());
+      postUser(user, () => { /**/ });
 
       expect(requests.length).toEqual(1);
       expect(requests[0].url).toEqual("/api/user");
@@ -46,7 +46,7 @@ describe("validateInBackend", () => {
 
   describe("fetchUsers", () => {
     it("makes request to the backend", () => {
-      fetchUsers(jest.fn());
+      fetchUsers(() => { /**/ });
 
       expect(requests.length).toEqual(1);
       expect(requests[0].url).toEqual("/api/users");
