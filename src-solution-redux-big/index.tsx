@@ -1,12 +1,12 @@
-import React from "react";
-import {Provider} from "react-redux";
 import {configureStore} from "@reduxjs/toolkit";
+import React from "react";
 import {createRoot} from "react-dom/client";
-import thunkMiddleware from "redux-thunk";
+import {Provider} from "react-redux";
 import logger from "redux-logger";
+import thunkMiddleware from "redux-thunk";
+import App from "../src-solution-redux-1/App";
 
 import reducer from "./reducers";
-import App from "../src-solution-redux-1/App";
 
 export const store = configureStore({
     reducer,
@@ -16,8 +16,7 @@ export const store = configureStore({
 
 const start: HTMLElement | null = document.getElementById("start");
 if (start !== null) {
-    const root = createRoot(start);
-    root.render(
+    createRoot(start).render(
         <Provider store={store}>
             <App />
         </Provider>
