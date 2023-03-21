@@ -3,14 +3,14 @@ import React from "react";
 import {createRoot} from "react-dom/client";
 import {Provider} from "react-redux";
 import logger from "redux-logger";
-import thunkMiddleware from "redux-thunk";
+
 import App from "../src-solution-redux-1/App";
 
 import reducer from "./reducers";
 
 export const store = configureStore({
     reducer,
-    middleware: [thunkMiddleware, logger],
+    middleware: [logger],
     devTools: true,
 });
 

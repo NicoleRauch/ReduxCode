@@ -25,20 +25,3 @@ export type StoreState = {
     products: ProductState,
     otherData: OtherDataState,
 }
-
-export type TAction = ThunkAction<
-    void,
-    StoreState,
-    unknown,
-    Action<string>
-    >;
-
-export type TDispatch = ThunkDispatch<
-    StoreState,
-    void,
-    Action<string>
-    >;
-
-export type IDispatchProps = {
-    dispatch: TDispatch
-}

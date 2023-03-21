@@ -7,8 +7,8 @@ import {configureStore} from "@reduxjs/toolkit";
 import React from "react";
 import {fireEvent, render, screen} from "@testing-library/react";
 import {Provider} from "react-redux";
-import thunkMiddleware from "redux-thunk";
-import reducer from "../src-solution-async-calls/reducers";
+
+import reducer from "../src-solution-redux-1/reducers";
 
 import App from "../src-solution-redux-hooks/App";
 import {UserActions} from "../src-solution-redux-1/reducers";
@@ -18,7 +18,6 @@ describe("App", () => {
   it("displays its user list", () => {
     const store = configureStore({
       reducer,
-      middleware: [thunkMiddleware],
       preloadedState: {users: [{firstName: "Petra", lastName: "Meier"}, {firstName: "Peter", lastName: "Miller"}]}
     });
     const {container} = render(<Provider store={store}><App/></Provider>);
@@ -31,7 +30,6 @@ describe("App", () => {
   it("invokes dispatcher with USER_ADDED action", () => {
     const store = configureStore({
       reducer,
-      middleware: [thunkMiddleware],
     });
     store.dispatch = jest.fn();
     render(<Provider store={store}><App/></Provider>);
