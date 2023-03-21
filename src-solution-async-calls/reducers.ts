@@ -14,5 +14,5 @@ const usersReducer = createReducer(INITIAL_STATE.users, {
 });
 
 export default combineReducers({
-    users: usersReducer,
+  users: usersReducer,
 });

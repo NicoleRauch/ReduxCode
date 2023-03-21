@@ -5,7 +5,5 @@ import App from "./App";
 
 const start: HTMLElement | null = document.getElementById("start");
 if (start !== null) {
-    createRoot(start).render(
-            <App />
-    );
+    createRoot(start).render(<App />);
 }

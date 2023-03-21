@@ -1,6 +1,5 @@
-
-import reducer, {addUser, INITIAL_STATE, UserActions} from "../src-solution-redux-simple/reducers";
 import {IUser, StoreState} from "../src-solution-redux-1/types";
+import reducer, {addUser, UserActions} from "../src-solution-redux-simple/reducers";
 
 const user: IUser = {firstName: "firstName", lastName: "lastName"};
 const stateUserOne: IUser = {firstName: "Peter", lastName: "Klaus"};
@@ -18,8 +17,8 @@ describe('reducers', () => {
 describe('reducer function', () => {
   it('returns the initial state when state undefined', () => {
     const newState = reducer(undefined, {type: "X"});
-    expect(newState).toEqual(INITIAL_STATE);
-    // INITIAL_STATE from reducers.ts
+    expect(newState).toEqual({users: []});
+    // einmal explizit die ganze Struktur testen!
   });
   it('returns the same state when action unknown', () => {
     const startState: StoreState = {users: [stateUserOne]};

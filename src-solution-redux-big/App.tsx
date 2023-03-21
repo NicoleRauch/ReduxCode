@@ -20,11 +20,11 @@ const AppComponent = ({specialUsers, dispatchUser}: AppProps & AppDispatch): Rea
     </div>;
 
 const mapStateToProps = (state: StoreState): AppProps =>
-  ({
-    specialUsers: state.users.filter(criterion)
-  });
+({
+   specialUsers: state.users.filter(criterion)
+});
 const mapDispatchToProps = (dispatch: Dispatch<Action>): AppDispatch =>
-  ({ dispatchUser:
-     (user: IUser): UserAddedAction => dispatch(addUser(user))
-  });
+({
+   dispatchUser: (user: IUser) => dispatch(addUser(user))
+});
 export default connect<AppProps, AppDispatch, Record<string, unknown>, StoreState>(mapStateToProps, mapDispatchToProps)(AppComponent);

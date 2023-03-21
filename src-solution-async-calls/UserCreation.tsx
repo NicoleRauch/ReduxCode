@@ -1,40 +1,34 @@
-import React, {Component, ReactElement} from "react";
+import React, {Component, ReactElement, useState} from "react";
 
 import {IDispatchProps} from "./types";
 import {submitUser} from "./actions";
 
-type UserCreationState = {
-    firstName: string,
-    lastName: string
-}
+const UserCreation = ({dispatch}: IDispatchProps) => {
 
-export default class UserCreation extends Component<IDispatchProps, UserCreationState> {
+  const [firstName, setFirstName] = useState<string>("");
+  const [lastName, setLastName] = useState<string>("");
 
-    constructor(props: IDispatchProps) {
-        super(props);
-        this.state = {firstName: "", lastName: ""};
-    }
+  return (
+    <div>
+      <div>
+        <label>First name:</label>
+        <input type="text"
+               onBlur={(e): void => setFirstName(e.target.value)}/>
+      </div>
+      <div>
+        <label>Last name:</label>
+        <input type="text" onBlur={(e): void => setLastName(e.target.value)}/>
+      </div>
+      <div>
+        <button
+          onClick={(): void => {
+            dispatch(submitUser({firstName, lastName}));
+          }}
+        >Submit
+        </button>
+      </div>
+    </div>
+  );
+};
 
-    render(): ReactElement {
-        return (
-            <div>
-                <div>
-                    <label>First name:</label>
-                    <input type="text"
-                           onBlur={(e): void => this.setState({firstName: e.target.value})}/>
-                </div>
-<div>
-  <label>Last name:</label>
-  <input type="text" onBlur={(e): void => this.setState({lastName: e.target.value})}/>
-</div>
-<div>
-  <button
-    onClick={(): void => {
-      this.props.dispatch(submitUser(this.state))
-    }}
-  >Submit</button>
-</div>
-            </div>
-        );
-    }
-}
+export default UserCreation;

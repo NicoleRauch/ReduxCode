@@ -18,7 +18,7 @@ export const fetchUsers = (callback: (response: IUser[]) => void): void => {
       method: "GET"
     },
     (_, response) => {
-        callback(JSON.parse(response) as IUser[]); // !!
+      callback(JSON.parse(response) as IUser[]); // !!
     }
   );
 };
