@@ -22,22 +22,18 @@ But it is of course feasible on Windows, too.
 
 After that:
 
-* open [http://localhost:3000](http://localhost:3000) in the browser. If you see "Please replace this!", all is well.
+* open [http://localhost:3000](http://localhost:3000) in the browser. If you see a list of names and some other stuff, all is well.
 
-
-## Building the JS-Bundle
-* `npm run build`
-* open `build/index.html` in the browser
 
 ## Trying out the solutions
 Webpack accesses the files in the folder `src` by default. This way, you can implement and experiment with your own solutions step by step during the training.
 
-To use the included examples, open the file `webpack.config.js` and change the path in the block `entry` such that it points to one of the other `index.js` files. Example:
+To use the included examples, open the file `webpack.config.js` and change the path in the block `entry` such that it points to one of the other `index.tsx` files. Example:
 
 ```
     entry: [
-        "./src-solution-redux/index"
+        "./src-solution-redux/index.tsx"
     ],
 ```
 
-The examples are fully functional and build on each other (in alphabetical order, except for "async" and "forms"). Please be aware that the final example requires a server to handle the emitted AJAX requests. A basic server is provided in the directory `backend`.
+The examples are fully functional and build on each other (in the order given in webpack.config). Please be aware that the final example requires a server to handle the emitted AJAX requests. A basic server is provided in the directory `backend`.
