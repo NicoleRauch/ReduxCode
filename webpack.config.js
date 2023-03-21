@@ -14,12 +14,10 @@ module.exports = {
     entry: [
         "./src/index.tsx",
         // "./src-solution-redux-1/index.tsx",
-        // "./src-solution-redux-2/index.tsx",
         // "./src-solution-redux-big/index.tsx",
-        // "./src-solution-redux-tools/index_logger.tsx",
-        // "./src-solution-redux-tools/index_devtools_and_logger.tsx",
+        // "./src-solution-redux-hooks/index.tsx",
+        // "./src-solution-redux-simple/index.tsx",
         // "./src-solution-async-calls/index.tsx",
-        // "./src-solution-hooks/index.tsx",
     ],
 
     resolve: {
